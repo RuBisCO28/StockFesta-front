@@ -11,4 +11,11 @@ ENV API_URL=${API_URL}
 
 WORKDIR ${ROOT}
 
+COPY package*.json ./
+RUN yarn install
+
+COPY . ./
+
+RUN yarn run build
+
 EXPOSE ${CONTAINER_PORT}
